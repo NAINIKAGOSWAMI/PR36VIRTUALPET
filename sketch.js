@@ -15,18 +15,18 @@ function setup() {
 
   foodObj = new Food();
 
-  foodStock=database.ref('Food');
+  foodStock=database.ref('food');
   foodStock.on("value",readStock);
   
   dog=createSprite(800,200,150,150);
   dog.addImage(sadDog);
   dog.scale=0.15;
   
-  feed=createButton("Feed the dog");
-  feed.position(700,95);
+  feed=createButton("FEED THE DOG");
+  feed.position(670,95);
   feed.mousePressed(feedDog);
 
-  addFood=createButton("Add Food");
+  addFood=createButton("ADD FOOD");
   addFood.position(800,95);
   addFood.mousePressed(addFoods);
 
@@ -36,7 +36,7 @@ function draw() {
   background(46,139,87);
   foodObj.display();
 
-  fedTime=database.ref('FeedTime');
+  fedTime=database.ref('feedTime');
   fedTime.on("value",function(data){
     lastFed=data.val();
   });
